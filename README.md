@@ -1,31 +1,32 @@
 # AdventOfCode2020
-My take at challenges in the <a href="https://adventofcode.com/2020">Advent of Code 2020</a>
+
+My take at challenges in the [Advent of Code 2020](https://adventofcode.com/2020)
 
 <pre>
                         *                              
-<a href="https://adventofcode.com/2020/day/1">              ..........|..........                 1**</a>
-<a href="https://adventofcode.com/2020/day/2">   .....'''''' .'  -  -   - .''~ ~ ''''''.....      2**</a>
-<a href="https://adventofcode.com/2020/day/3">''' ~ ~ ~ ~  ~ '.'. -   -   -'':  ~ ~   ~  ~  '''   3**</a>
-<a href="https://adventofcode.com/2020/day/4"> ~   ~  ~   ~ ~  ~ ''..'''.  .'  ~    ~   ~ ~  ~    4**</a>
-<a href="https://adventofcode.com/2020/day/5">~   ~ ~  .'. ~  ~  ~    ~  ''  ~  ~  ~  ~  ~    ~   5**</a>
-<a href="https://adventofcode.com/2020/day/6">  ~    ~ ''  ..  ~    ~   ~  ~  ~    _ ~ _   O&gt;     6**</a>
-<a href="https://adventofcode.com/2020/day/7"> ~  ~ ~   ~ :  '.   ~   ~      ~  \ / \ / \ /  ~    7**</a>
-<a href="https://adventofcode.com/2020/day/8">       ~     '.' ~        ~  ~   ~  ~      ~    ~   8**</a>
-<a href="https://adventofcode.com/2020/day/17"> ~   ~      ~      ~   ~        ~      ~      ~    17**</a>
-<a href="https://adventofcode.com/2020/day/9">       ~       ~        .''''..    ~       ~    .   9**</a>
-<a href="https://adventofcode.com/2020/day/16">    ~       ~       ~   .'^ , .'      ~  ~  ..''   16**</a>
-<a href="https://adventofcode.com/2020/day/18">...     ~      ~        :^ , :   ~       :''  , ^  18**</a>
-<a href="https://adventofcode.com/2020/day/15">###: ...    ~      ~     '..'          ~ '. ,      15**</a>
-<a href="https://adventofcode.com/2020/day/19">.'' .'##'.             ~       ~   ~      :  , ^   19**</a>
-<a href="https://adventofcode.com/2020/day/10">'...'#####'.  ~    ~      ~            .'' ,  ^ ^  10**</a>
-<a href="https://adventofcode.com/2020/day/14">##### ,###.'               .       ~   '.    , ^   14**</a>
-<a href="https://adventofcode.com/2020/day/20">#,      , '.         ~  .'',:  ~         '..  , ^  20**</a>
-<a href="https://adventofcode.com/2020/day/11">   ~ ~   , ,'.   ~     :, ..'           ~   ''...  11**</a>
-<a href="https://adventofcode.com/2020/day/13">~ ~ ~ ~     , :         ''     ~                   13**</a>
-<a href="https://adventofcode.com/2020/day/21"> ~ ~ ~ ~ ~ , ,:     ~     ~          ~      ~      21**</a>
-<a href="https://adventofcode.com/2020/day/12">~ ~ ~ ~ ~  , .'                                    12**</a>
-<a href="https://adventofcode.com/2020/day/22"> ~ ~ ~    ..'   ~               ~         ~    ~   22**</a>
-<a href="https://adventofcode.com/2020/day/23">  .....'''           ~     ~                       23**</a>
-<a href="https://adventofcode.com/2020/day/24">''         ~                 .'..   .''..       ~  24**</a>
-<a href="https://adventofcode.com/2020/day/25">     ~          ~        ~    '.'  :    .'  ~      25**</a>
+<a href="Day01 - Report Repair"          >              ..........|..........                 1**</a>
+<a href="Day02 - Password Philosophy"    >   .....'''''' .'  -  -   - .''~ ~ ''''''.....      2**</a>
+<a href="Day03 - Toboggan Trajectory"    >''' ~ ~ ~ ~  ~ '.'. -   -   -'':  ~ ~   ~  ~  '''   3**</a>
+<a href="Day04 - Passport Processing"    > ~   ~  ~   ~ ~  ~ ''..'''.  .'  ~    ~   ~ ~  ~    4**</a>
+<a href="Day05 - Binary Boarding"        >~   ~ ~  .'. ~  ~  ~    ~  ''  ~  ~  ~  ~  ~    ~   5**</a>
+<a href="Day06 - Custom Customs"         >  ~    ~ ''  ..  ~    ~   ~  ~  ~    _ ~ _   O&gt;     6**</a>
+<a href="Day07 - Handy Haversacks"       > ~  ~ ~   ~ :  '.   ~   ~      ~  \ / \ / \ /  ~    7**</a>
+<a href="Day08 - Handheld Halting"       >       ~     '.' ~        ~  ~   ~  ~      ~    ~   8**</a>
+<a href="Day09 - Encoding Error"         > ~   ~      ~      ~   ~        ~      ~      ~    17**</a>
+<a href="Day10 - Adapter Array"          >       ~       ~        .''''..    ~       ~    .   9**</a>
+<a href="Day11 - Seating System"         >    ~       ~       ~   .'^ , .'      ~  ~  ..''   16**</a>
+<a href="Day12 - Rain Risk"              >...     ~      ~        :^ , :   ~       :''  , ^  18**</a>
+<a href="Day13 - Shuttle Search"         >###: ...    ~      ~     '..'          ~ '. ,      15**</a>
+<a href="Day14 - Docking Data"           >.'' .'##'.             ~       ~   ~      :  , ^   19**</a>
+<a href="Day15 - Rambunctious Recitation">'...'#####'.  ~    ~      ~            .'' ,  ^ ^  10**</a>
+<a href="Day16 - Ticket Translation"     >##### ,###.'               .       ~   '.    , ^   14**</a>
+<a href="Day17 - Conway Cubes"           >#,      , '.         ~  .'',:  ~         '..  , ^  20**</a>
+<a href="Day18 - Operation Order"        >   ~ ~   , ,'.   ~     :, ..'           ~   ''...  11**</a>
+<a href="Day19 - Monster Messages"       >~ ~ ~ ~     , :         ''     ~                   13**</a>
+<a href="Day20 - Jurassic Jigsaw"        > ~ ~ ~ ~ ~ , ,:     ~     ~          ~      ~      21**</a>
+<a href="Day21 - Allergen Assessment"    >~ ~ ~ ~ ~  , .'                                    12**</a>
+<a href="Day22 - Crab Combat"            > ~ ~ ~    ..'   ~               ~         ~    ~   22**</a>
+<a href="Day23 - Crab Cups"              >  .....'''           ~     ~                       23**</a>
+<a href="Day24 - Lobby Layout"           >''         ~                 .'..   .''..       ~  24**</a>
+<a href="Day25 - Combo Breaker"          >     ~          ~        ~    '.'  :    .'  ~      25**</a>
 </pre>
