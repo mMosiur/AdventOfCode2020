@@ -1,9 +1,8 @@
-namespace Day22
-{
-    public interface IGame
-    {
-        public Deck Play();
+namespace AdventOfCode.Year2020.Day22;
 
-        public Deck Winner { get; }
-    }
+public interface IGame
+{
+	public Deck Play();
+
+	public Deck? Winner { get; }
 }

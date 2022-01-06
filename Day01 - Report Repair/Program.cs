@@ -1,58 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+using System;
 
-namespace Day01
-{
-    class Program
-    {
-        static int[] GetData()
-        {
-            using (StreamReader stream = new("input.txt"))
-            {
-                var input = stream.ReadToEnd().Split('\n').Where(str=>str!="").Select(str => int.Parse(str));
-                return input.ToArray();
-            }
-        }
+using AdventOfCode.Year2020.Day01;
 
-        static int TwoNumSum(IEnumerable<int> data, int expectedSum)
-        {
-            HashSet<int> nums = new();
-            foreach (int num in data)
-            {
-                int complement = expectedSum - num;
-                if (nums.Contains(complement))
-                {
-                    return num * complement;
-                }
-                else
-                {
-                    nums.Add(num);
-                }
-            }
-            return -1;
-        }
+const string DEFAULT_INPUT_FILE = "input.txt";
 
-        static int ThreeNumSum(IEnumerable<int> data, int expectedSum)
-        {
-            foreach(int num in data)
-            {
-                int complement = expectedSum - num;
-                int result = TwoNumSum(data, complement);
-                if(result == -1) continue;
-                return result * num;
-            }
-            return -1;
-        }
+string filepath = args.Length > 0 ? args[0] : DEFAULT_INPUT_FILE;
+var solver = new Day01Solver(filepath);
 
-        static void Main(string[] args)
-        {
-            var data = GetData();
-            int result1 = TwoNumSum(data, 2020);
-            Console.WriteLine($"Result 1: {result1}");
-            int result2 = ThreeNumSum(data, 2020);
-            Console.WriteLine($"Result 2: {result2}");
-        }
-    }
-}
+Console.Write("Part 1: ");
+string part1 = solver.SolvePart1();
+Console.WriteLine(part1);
+
+Console.Write("Part 2: ");
+string part2 = solver.SolvePart2();
+Console.WriteLine(part2);

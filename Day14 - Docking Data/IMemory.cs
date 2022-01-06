@@ -1,9 +1,8 @@
-namespace Day14
+namespace AdventOfCode.Year2020.Day14;
+
+public interface IMemory
 {
-    public interface IMemory
-    {
-        public void SetMask(string str);
-        public void Write(long address, long value);
-        public long GetMemorySum();
-    }
+	public void SetMask(string str);
+	public void Write(long address, long value);
+	public long GetMemorySum();
 }

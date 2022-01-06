@@ -1,75 +1,16 @@
 ﻿using System;
-using System.IO;
 
-namespace Day12
-{
-    class Program
-    {
-        static void ExecuteCommand(IShip ship, string command)
-        {
-            char action = command[0];
-            int value = int.Parse(command.Substring(1));
-            switch (action)
-            {
-                case 'N':
-                    ship.GoNorth(value);
-                    break;
-                case 'S':
-                    ship.GoSouth(value);
-                    break;
-                case 'E':
-                    ship.GoEast(value);
-                    break;
-                case 'W':
-                    ship.GoWest(value);
-                    break;
-                case 'L':
-                    ship.TurnLeft(value);
-                    break;
-                case 'R':
-                    ship.TurnRight(value);
-                    break;
-                case 'F':
-                    ship.GoForward(value);
-                    break;
-            }
-        }
+using AdventOfCode.Year2020.Day12;
 
-        static int GetManhattanDistanceOfShip(IShip ship, string[] instructions)
-        {
-            foreach (string instruction in instructions)
-            {
-                ExecuteCommand(ship, instruction);
-            }
-            return ship.Position.ManhattanDistance();
-        }
+const string DEFAULT_INPUT_FILEPATH = "input.txt";
 
-        const string InputFilePath = "input.txt";
+string filepath = args.Length > 0 ? args[0] : DEFAULT_INPUT_FILEPATH;
+var solver = new Day12Solver(filepath);
 
-        static void Main(string[] args)
-        {
-            FileStream filestream = null;
-            try
-            {
-                filestream = new(InputFilePath, FileMode.Open);
-                using (StreamReader reader = new(filestream))
-                {
-                    string[] lines = reader.ReadToEnd().Split('\n', StringSplitOptions.RemoveEmptyEntries);
+Console.Write("Part 1: ");
+string part1 = solver.SolvePart1();
+Console.WriteLine(part1);
 
-                    int distance = 0;
-                    distance = GetManhattanDistanceOfShip(new Ship(), lines);
-                    System.Console.WriteLine($"Manhattan distance: {distance}");
-                    distance = GetManhattanDistanceOfShip(new WaypointShip(), lines);
-                    System.Console.WriteLine($"Waypoint manhattan distance: {distance}");
-                }
-            }
-            finally
-            {
-                if (filestream != null)
-                {
-                    filestream.Dispose();
-                }
-            }
-        }
-    }
-}
+Console.Write("Part 2: ");
+string part2 = solver.SolvePart2();
+Console.WriteLine(part2);

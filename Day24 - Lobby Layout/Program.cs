@@ -1,46 +1,16 @@
 ﻿using System;
-using System.IO;
-using System.Linq;
 
-namespace Day24
-{
-    class Program
-    {
-        static string[] ReadLines(string path)
-        {
-            FileStream filestream = null;
-            try
-            {
-                filestream = new FileStream(path, FileMode.Open);
-                using (StreamReader reader = new StreamReader(filestream))
-                {
-                    return reader.ReadToEnd().Split('\n', StringSplitOptions.RemoveEmptyEntries);
-                }
-            }
-            finally
-            {
-                if (filestream != null)
-                {
-                    filestream.Dispose();
-                }
-            }
-        }
-        static void Main(string[] args)
-        {
-            string[] lines = ReadLines("input.txt");
-            HexGrid grid = new HexGrid();
-            foreach (string line in lines)
-            {
-                grid.FlipHexAt(line);
-            }
-            int blackCount = grid.BlackHexes.Count();
-            System.Console.WriteLine($"Part 1: {blackCount}");
-            for (int i = 0; i < 100; i++)
-            {
-                grid.NextDay();
-            }
-            blackCount = grid.BlackHexes.Count();
-            System.Console.WriteLine($"Part 2: {blackCount}");
-        }
-    }
-}
+using AdventOfCode.Year2020.Day24;
+
+const string DEFAULT_INPUT_FILEPATH = "input.txt";
+
+string filepath = args.Length > 0 ? args[0] : DEFAULT_INPUT_FILEPATH;
+var solver = new Day24Solver(filepath);
+
+Console.Write("Part 1: ");
+string part1 = solver.SolvePart1();
+Console.WriteLine(part1);
+
+Console.Write("Part 2: ");
+string part2 = solver.SolvePart2();
+Console.WriteLine(part2);

@@ -2,32 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Day23
+namespace AdventOfCode.Year2020.Day23;
+
+public class OneBasedArray<T> : IEnumerable<T>
 {
-    class OneBasedArray<T> : IEnumerable<T>
-    {
-        private T[] array;
+	private T[] array;
 
-        public int Current { get; set; }
+	public int Current { get; set; }
 
-        public OneBasedArray(int size)
-        {
-            array = new T[size];
-        }
+	public OneBasedArray(int size)
+	{
+		array = new T[size];
+	}
 
-        public T this[int index] { get => array[index - 1]; set => array[index - 1] = value; }
+	public T this[int index] { get => array[index - 1]; set => array[index - 1] = value; }
 
-        public int Length => array.Length;
-        public long LongLength => array.LongLength;
+	public int Length => array.Length;
+	public long LongLength => array.LongLength;
 
-        public IEnumerator<T> GetEnumerator()
-        {
-            return array.Cast<T>().GetEnumerator();
-        }
+	public IEnumerator<T> GetEnumerator()
+	{
+		return array.Cast<T>().GetEnumerator();
+	}
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-    }
+	IEnumerator IEnumerable.GetEnumerator()
+	{
+		return GetEnumerator();
+	}
 }

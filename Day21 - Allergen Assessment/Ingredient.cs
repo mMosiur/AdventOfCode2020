@@ -1,32 +1,31 @@
-namespace Day21
+namespace AdventOfCode.Year2020.Day21;
+
+public record Ingredient
 {
-    public record Ingredient
-    {
-        public string Name { get; }
+	public string Name { get; }
 
-        public Ingredient(string name)
-        {
-            Name = name;
-        }
+	public Ingredient(string name)
+	{
+		Name = name;
+	}
 
-        public static implicit operator Ingredient(string str)
-        {
-            return new Ingredient(str);
-        }
+	public static implicit operator Ingredient(string str)
+	{
+		return new Ingredient(str);
+	}
 
-        public static implicit operator string(Ingredient Ingredient)
-        {
-            return Ingredient.ToString();
-        }
+	public static implicit operator string(Ingredient Ingredient)
+	{
+		return Ingredient.ToString();
+	}
 
-        public override int GetHashCode()
-        {
-            return Name.GetHashCode();
-        }
+	public override int GetHashCode()
+	{
+		return Name.GetHashCode();
+	}
 
-        public override string ToString()
-        {
-            return Name;
-        }
-    }
+	public override string ToString()
+	{
+		return Name;
+	}
 }

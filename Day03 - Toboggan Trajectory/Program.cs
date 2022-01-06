@@ -1,54 +1,16 @@
-﻿using System;
-using System.IO;
+using System;
 
-namespace Day03
-{
-    class Program
-    {
-        static char[,] GetData()
-        {
-            char[,] map;
-            using (StreamReader stream = new("input.txt"))
-            {
-                string[] lines = stream.ReadToEnd().Split('\n');
-                map = new char[lines.Length - 1, lines[0].Length];
-                for (int i = 0; i < lines.Length - 1; i++)
-                {
-                    for (int j = 0; j < lines[i].Length; j++)
-                    {
-                        map[i, j] = lines[i][j];
-                    }
-                }
-                return map;
-            }
-        }
+using AdventOfCode.Year2020.Day03;
 
-        static int TreeEncounterCount(char[,] map, int downSlope, int sideSlope)
-        {
-            int count = 0;
-            int i = downSlope;
-            int j = sideSlope;
-            while (i < map.GetLength(0))
-            {
-                char c = map[i, j];
-                if (map[i, j] == '#') count++;
-                i += downSlope;
-                j += sideSlope;
-                j %= map.GetLength(1);
-            }
-            return count;
-        }
+const string DEFAULT_INPUT_FILEPATH = "input.txt";
 
-        static void Main(string[] args)
-        {
-            char[,] map = GetData();
-            long result = 1;
-            result *= TreeEncounterCount(map, 1, 1);
-            result *= TreeEncounterCount(map, 1, 3);
-            result *= TreeEncounterCount(map, 1, 5);
-            result *= TreeEncounterCount(map, 1, 7);
-            result *= TreeEncounterCount(map, 2, 1);
-            Console.WriteLine(result);
-        }
-    }
-}
+string filepath = args.Length > 0 ? args[0] : DEFAULT_INPUT_FILEPATH;
+var solver = new Day03Solver(filepath);
+
+Console.Write("Part 1: ");
+string part1 = solver.SolvePart1();
+Console.WriteLine(part1);
+
+Console.Write("Part 2: ");
+string part2 = solver.SolvePart2();
+Console.WriteLine(part2);

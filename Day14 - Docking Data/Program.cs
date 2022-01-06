@@ -1,55 +1,16 @@
 ﻿using System;
-using System.IO;
 
-namespace Day14
-{
-    class Program
-    {
-        const string InputFilePath = "input.txt";
+using AdventOfCode.Year2020.Day14;
 
-        static long GetSumOfMemory(IMemory memory, string[] instructions)
-        {
-            foreach (string instruction in instructions)
-            {
-                string[] command = instruction.Split(" = ");
-                if (command[0] == "mask")
-                {
-                    memory.SetMask(command[1]);
-                }
-                else
-                {
-                    command[0] = command[0].Substring(4, command[0].Length - 5);
-                    int address = int.Parse(command[0]);
-                    long value = long.Parse(command[1]);
-                    memory.Write(address, value);
-                }
-            }
-            return memory.GetMemorySum();
-        }
+const string DEFAULT_INPUT_FILEPATH = "input.txt";
 
-        static void Main(string[] args)
-        {
-            FileStream filestream = null;
-            try
-            {
-                filestream = new(InputFilePath, FileMode.Open);
-                using (StreamReader reader = new(filestream))
-                {
-                    string[] lines = reader.ReadToEnd().Split('\n', StringSplitOptions.RemoveEmptyEntries);
+string filepath = args.Length > 0 ? args[0] : DEFAULT_INPUT_FILEPATH;
+var solver = new Day14Solver(filepath);
 
-                    long sum1 = GetSumOfMemory(new MemoryV1(), lines);
-                    System.Console.WriteLine($"Memory v1 sum: {sum1}");
-                    long sum2 = GetSumOfMemory(new MemoryV2(), lines);
-                    System.Console.WriteLine($"Memory v2 sum: {sum2}");
-                }
-            }
-            finally
-            {
-                if (filestream != null)
-                {
-                    filestream.Dispose();
-                }
-            }
-        }
-    }
-}
+Console.Write("Part 1: ");
+string part1 = solver.SolvePart1();
+Console.WriteLine(part1);
+
+Console.Write("Part 2: ");
+string part2 = solver.SolvePart2();
+Console.WriteLine(part2);

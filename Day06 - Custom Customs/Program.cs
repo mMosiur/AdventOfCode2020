@@ -1,54 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 
-namespace Day06
-{
+using AdventOfCode.Year2020.Day06;
 
-    class Program
-    {
-        static int GetSumOfAny()
-        {
-            FileStream fs = new("input.txt", FileMode.Open);
-            int sum = 0;
-            using (StreamReader reader = new(fs))
-            {
-                var groups = reader.ReadToEnd().Split("\n\n").Select(str => str.Split('\n')).ToArray();
-                foreach (var group in groups)
-                {
-                    HashSet<char> chars = new();
-                    foreach (string answers in group)
-                        foreach(char c in answers)
-                            chars.Add(c);
-                    sum += chars.Count;
-                }
-            }
-            return sum;
-        }
+const string DEFAULT_INPUT_FILEPATH = "input.txt";
 
-        static int GetSumOfAll()
-        {
-            FileStream fs = new("input.txt", FileMode.Open);
-            int sum = 0;
-            using (StreamReader reader = new(fs))
-            {
-                var groups = reader.ReadToEnd().Split("\n\n").Select(str => str.Split('\n')).ToArray();
-                foreach (var group in groups)
-                {
-                    HashSet<char> chars = new("abcdefghijklmnopqrstuvwxyz");
-                    foreach (string answers in group)
-                        chars.IntersectWith(answers);
-                    sum += chars.Count;
-                }
-            }
-            return sum;
-        }
+string filepath = args.Length > 0 ? args[0] : DEFAULT_INPUT_FILEPATH;
+var solver = new Day06Solver(filepath);
 
-        static void Main(string[] args)
-        {
-            Console.WriteLine($"Any: {GetSumOfAny()}");
-            Console.WriteLine($"Any: {GetSumOfAll()}");
-        }
-    }
-}
+Console.Write("Part 1: ");
+string part1 = solver.SolvePart1();
+Console.WriteLine(part1);
+
+Console.Write("Part 2: ");
+string part2 = solver.SolvePart2();
+Console.WriteLine(part2);

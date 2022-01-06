@@ -1,35 +1,32 @@
 using System;
 using System.Linq;
 
-namespace Day16
+namespace AdventOfCode.Year2020.Day16;
+
+public record Range
 {
-    public record Range
-    {
-        public int Start { get; }
-        public int End { get; }
+	public int Start { get; }
+	public int End { get; }
 
-        public Range(int start, int end) => (Start, End) = (start, end);
+	public Range(string str)
+	{
+		string[] parts = str.Trim().Split('-').Select(part => part.Trim("()".ToCharArray())).ToArray();
+		if (parts.Length != 2) throw new ArgumentException();
+		Start = int.Parse(parts[0]);
+		End = int.Parse(parts[1]);
+	}
 
-        public Range(string str)
-        {
-            string[] parts = str.Trim().Split('-').Select(part => part.Trim("()".ToCharArray())).ToArray();
-            if (parts.Length != 2) throw new ArgumentException();
-            Start = int.Parse(parts[0]);
-            End = int.Parse(parts[1]);
-        }
+	public bool IsInRange(int number)
+	{
+		return Start <= number && number <= End;
+	}
 
-        public bool IsInRange(int number)
-        {
-            return Start <= number && number <= End;
-        }
-
-        public override string ToString()
-        {
-            string startStr = Start.ToString();
-            if(Start < 0) startStr = $"({startStr})";
-            string endStr = End.ToString();
-            if(End < 0) endStr = $"({endStr})";
-            return $"{startStr}-{endStr}";
-        }
-    }
+	public override string ToString()
+	{
+		string startStr = Start.ToString();
+		if (Start < 0) startStr = $"({startStr})";
+		string endStr = End.ToString();
+		if (End < 0) endStr = $"({endStr})";
+		return $"{startStr}-{endStr}";
+	}
 }
